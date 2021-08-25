@@ -15,7 +15,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -D_FILE_OFFSET_BITS=64")
 
 if(MINGW)
     set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -static")
-else(NOT MINGW)
+else((NOT MINGW) AND (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Linux"))
     set(CMAKE_EXE_LINKER_FLAGS "-lobjc -framework IOKit -framework CoreFoundation")
 endif(MINGW)
 
